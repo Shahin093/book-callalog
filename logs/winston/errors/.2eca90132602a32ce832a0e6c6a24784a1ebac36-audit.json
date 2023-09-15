@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "F:\\lavel-2-univercity mangement core-service-project\\book-catallog-assginment-8\\logs\\winston\\errors\\.2eca90132602a32ce832a0e6c6a24784a1ebac36-audit.json",
+    "files": [
+        {
+            "date": 1694744528995,
+            "name": "F:\\lavel-2-univercity mangement core-service-project\\book-catallog-assginment-8\\logs\\winston\\errors\\phu-2023-15-09-08-error.log",
+            "hash": "4a6be2b33f44871048e56a36f4fb62ba2373b2f956d8f9a360fc5df7324f72cf"
+        }
+    ],
+    "hashType": "sha256"
+}

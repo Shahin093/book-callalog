@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "F:\\lavel-2-univercity mangement core-service-project\\book-catallog-assginment-8\\logs\\winston\\successes\\.40df01689900296949d865752a4642505b8607fc-audit.json",
+    "files": [
+        {
+            "date": 1694744528987,
+            "name": "F:\\lavel-2-univercity mangement core-service-project\\book-catallog-assginment-8\\logs\\winston\\successes\\phu-2023-15-09-08-success.log",
+            "hash": "c1a72da5df7190aa86b4315760770dc03537696af614c6e16d98d9968a3f84e3"
+        }
+    ],
+    "hashType": "sha256"
+}
