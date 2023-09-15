@@ -8,6 +8,4 @@ router.get("/:id", UserController.getByIdFromDB);
 router.delete("/:id", UserController.deleteUser);
 router.patch("/:id", UserController.updateUser);
 
-router.post("/signup", UserController.insertInToDB);
-
 export const UserRoutes = router;

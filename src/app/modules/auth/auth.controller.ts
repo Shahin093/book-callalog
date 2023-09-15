@@ -1,0 +1,30 @@
+import { Request, Response } from "express";
+import catchAsync from "../../../shared/catchAsync";
+import { AuthService } from "./auth.service";
+import config from "../../../config";
+import sendResponse from "../../../shared/sendResponse";
+
+const loginUser = catchAsync(async (req: Request, res: Response) => {
+  const { ...loginData } = req.body;
+  const result = await AuthService.loginUser(loginData);
+  const { refreshToken, ...others } = result;
+  console.log("refreshToken", refreshToken);
+  // set refresh token into cookie
+  const cookieOptions = {
+    secure: config.env === "production",
+    httpOnly: true,
+  };
+
+  res.cookie("refreshToken", refreshToken, cookieOptions);
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "User logged in successfully !",
+    data: others,
+  });
+});
+
+export const AuthController = {
+  loginUser,
+};
