@@ -14,6 +14,8 @@ router.patch(
   CategoryController.updateFromDB
 );
 
+router.delete("/:id", CategoryController.deleteFromDB);
+
 router.post(
   "/create-category",
   auth(ENUM_USER_ROLE.ADMIN),
