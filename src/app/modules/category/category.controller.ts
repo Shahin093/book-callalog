@@ -36,9 +36,22 @@ const getByIdFromDB = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const updateFromDB = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const payload = req.body;
+  const result = await CategoryService.updateFromDB(id, payload);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Category updated successfully",
+    data: result,
+  });
+});
 
 export const CategoryController = {
   insertInToDB,
   getAllDataFromDB,
   getByIdFromDB,
+  updateFromDB,
 };
