@@ -15,7 +15,7 @@ model User {
   id String @id @default(uuid())
   name String
   email String @unique
-  password String
+  password String? @default("shahin123")
   role UserRole
   contactNo Int
   address String
@@ -59,9 +59,18 @@ model Order {
   id           String   @id @default(uuid())
   userId       String
   user         User     @relation(fields: [userId], references: [id])
-  orderedBooks Json
+  orderedBooks OrderedBook[]
   status       String   @default("pending")
   createdAt    DateTime @default(now())
+}
+
+model OrderedBook {
+  // id           String   @id @default(uuid())
+  bookId       String  
+  quantity     Int     
+  orderId      String  
+  order        Order    @relation(fields: [orderId], references: [id])
+ @@unique([bookId, orderId])
 }
 
 enum UserRole {

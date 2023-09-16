@@ -15,6 +15,17 @@ const insertInToDB = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
+  const result = await BookService.getAllFromDB();
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Books with  fetched successfully",
+    data: result,
+  });
+});
+
 const getByCategoryIdFromDB = catchAsync(
   async (req: Request, res: Response) => {
     const { categoryId } = req.params;
@@ -54,9 +65,24 @@ const updateFromDB = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const deleteFromDB = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  const result = await BookService.getByIdFromDB(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Book deleted successfully",
+    data: result,
+  });
+});
+
 export const BookController = {
   insertInToDB,
   getByCategoryIdFromDB,
   getByIdFromDB,
   updateFromDB,
+  deleteFromDB,
+  getAllFromDB,
 };

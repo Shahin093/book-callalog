@@ -10,8 +10,10 @@ const insertInToDB = async (data: Book): Promise<Book> => {
   });
   return result;
 };
-
-// getallBooks
+const getAllFromDB = async (): Promise<Book[]> => {
+  const result = await prisma.book.findMany();
+  return result;
+};
 
 const getByCategoryIdFromDB = async (
   categoryId: string
@@ -55,9 +57,23 @@ const updateFromDB = async (
   return result;
 };
 
+const deleteFromDB = async (id: string): Promise<Book | null> => {
+  const result = await prisma.book.delete({
+    where: {
+      id,
+    },
+    include: {
+      category: true,
+    },
+  });
+  return result;
+};
+
 export const BookService = {
   insertInToDB,
   getByCategoryIdFromDB,
   getByIdFromDB,
   updateFromDB,
+  deleteFromDB,
+  getAllFromDB,
 };
