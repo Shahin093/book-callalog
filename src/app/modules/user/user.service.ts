@@ -57,10 +57,20 @@ const updateUser = async (
   return result;
 };
 
+const GetMyProfile = async (userId: string): Promise<User | null> => {
+  const result = await prisma.user.findFirst({
+    where: {
+      id: userId,
+    },
+  });
+  return result;
+};
+
 export const UserService = {
   insertInToDB,
   getAllDataFromDB,
   getByIdFromDB,
   deleteUser,
   updateUser,
+  GetMyProfile,
 };

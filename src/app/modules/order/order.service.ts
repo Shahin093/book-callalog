@@ -1,5 +1,7 @@
 import { Order, OrderedBook } from "@prisma/client";
 import prisma from "../../../shared/prisma";
+import ApiError from "../../../errors/ApiError";
+import httpStatus from "http-status";
 
 const insertInToDB = async (id: string, payload: any): Promise<Order> => {
   const newOrder = await prisma.order.create({
@@ -55,13 +57,16 @@ const getByIdFromDB = async (
   const result = await prisma.order.findFirst({
     where: {
       id: orderId,
-      userId: userId,
     },
     include: {
       user: true,
       orderedBooks: true,
     },
   });
+
+  if (!(result?.userId === userId)) {
+    throw new ApiError(httpStatus.BAD_REQUEST, "it's not your order.");
+  }
 
   return result;
 };

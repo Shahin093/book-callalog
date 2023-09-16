@@ -60,10 +60,23 @@ const updateUser = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const GetMyProfile = catchAsync(async (req: Request, res: Response) => {
+  const userId = (req as any).user.userId;
+  const result = await UserService.GetMyProfile(userId);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "user fetched successfully",
+    data: result,
+  });
+});
+
 export const UserController = {
   insertInToDB,
   getAllDataFromDB,
   getByIdFromDB,
   deleteUser,
   updateUser,
+  GetMyProfile,
 };

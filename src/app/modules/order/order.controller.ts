@@ -37,7 +37,6 @@ const getByIdFromDB = catchAsync(async (req: Request, res: Response) => {
   const userId = (req as any).user.userId;
   const { orderId } = req.params;
   const result = await OrderService.getByIdFromDB(userId, orderId);
-  console.log(result);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
