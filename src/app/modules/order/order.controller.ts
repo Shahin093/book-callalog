@@ -33,6 +33,22 @@ const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getByIdFromDB = catchAsync(async (req: Request, res: Response) => {
+  const userId = (req as any).user.userId;
+  const { orderId } = req.params;
+  const result = await OrderService.getByIdFromDB(userId, orderId);
+  console.log(result);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Order fetch successfully",
+    data: result,
+  });
+});
+
 export const OrderController = {
-  insertInToDB,getAllFromDB
+  insertInToDB,
+  getAllFromDB,
+  getByIdFromDB,
 };

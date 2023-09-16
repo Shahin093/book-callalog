@@ -19,10 +19,6 @@ const insertInToDB = async (data: Book): Promise<Book> => {
   });
   return result;
 };
-// const getAllFromDB = async (): Promise<Book[]> => {
-//   const result = await prisma.book.findMany();
-//   return result;
-// };
 
 const getAllFromDB = async (
   filters: IBookFilterRequest,
