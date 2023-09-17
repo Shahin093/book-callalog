@@ -1,6 +1,6 @@
 My Project Name : Book Catalog
-#Live Link : https://book-catallog-assginment-8.vercel.app/api/v1/
-#github Repo Link : 
+###Live Link : https://book-catallog-assginment-8.vercel.app/api/v1/
+###github Repo Link :https://github.com/Shahin093/book-callalog-assignment-8
 
 ## API End points
 
@@ -9,6 +9,15 @@ My Project Name : Book Catalog
 ### User Sign Up
 
 Route: /api/v1/auth/signup (POST)
+{
+"name": "Jhon Doe",
+"email": "shahin@gmail.com",
+"password": "103511",
+"role": "admin",
+"contactNo": 1234567890,
+"address": "Dhaka, Bangladesh",
+"profileImg": "user.jpg"
+}
 
 ### User Login
 
