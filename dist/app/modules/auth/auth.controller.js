@@ -32,7 +32,6 @@ const loginUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void
     const loginData = __rest(req.body, []);
     const result = yield auth_service_1.AuthService.loginUser(loginData);
     const { refreshToken } = result, others = __rest(result, ["refreshToken"]);
-    console.log("refreshToken", refreshToken);
     // set refresh token into cookie
     const cookieOptions = {
         secure: config_1.default.env === "production",
@@ -42,8 +41,8 @@ const loginUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void
     (0, sendResponse_1.default)(res, {
         statusCode: 200,
         success: true,
-        message: "User logged in successfully !",
-        data: others,
+        message: "User logged in successfully!",
+        token: others === null || others === void 0 ? void 0 : others.accessToken,
     });
 }));
 exports.AuthController = {

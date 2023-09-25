@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { Response } from "express";
 
 type IApiReponse<T> = {
   statusCode: number;
@@ -9,6 +9,7 @@ type IApiReponse<T> = {
     limit: number;
     total: number;
   };
+  token?: string;
   data?: T | null;
 };
 
@@ -17,6 +18,7 @@ const sendResponse = <T>(res: Response, data: IApiReponse<T>): void => {
     statusCode: data.statusCode,
     success: data.success,
     message: data.message || null,
+    token: data.token || null || undefined,
     meta: data.meta || null || undefined,
     data: data.data || null || undefined,
   };

@@ -9,15 +9,6 @@ My Project Name : Book Catalog
 ### User Sign Up
 
 Route: /api/v1/auth/signup (POST)
-{
-"name": "Jhon Doe",
-"email": "shahin@gmail.com",
-"password": "103511",
-"role": "admin",
-"contactNo": 1234567890,
-"address": "Dhaka, Bangladesh",
-"profileImg": "user.jpg"
-}
 
 ### User Login
 

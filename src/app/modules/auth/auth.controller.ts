@@ -8,7 +8,7 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
   const { ...loginData } = req.body;
   const result = await AuthService.loginUser(loginData);
   const { refreshToken, ...others } = result;
-  console.log("refreshToken", refreshToken);
+
   // set refresh token into cookie
   const cookieOptions = {
     secure: config.env === "production",
@@ -20,8 +20,8 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: 200,
     success: true,
-    message: "User logged in successfully !",
-    data: others,
+    message: "User logged in successfully!",
+    token: others?.accessToken,
   });
 });
 
