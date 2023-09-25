@@ -18,6 +18,7 @@ const insertInToDB = catchAsync(async (req: Request, res: Response) => {
 const getAllDataFromDB = catchAsync(async (req: Request, res: Response) => {
   const result = await UserService.getAllDataFromDB();
   const usersResponseData = result.map(({ password, ...rest }) => rest);
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,

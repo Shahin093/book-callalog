@@ -9,6 +9,10 @@ router.get("/:id", BookController.getByIdFromDB);
 router.patch("/:id", auth(ENUM_USER_ROLE.ADMIN), BookController.updateFromDB);
 router.delete("/:id", auth(ENUM_USER_ROLE.ADMIN), BookController.deleteFromDB);
 router.get("/:categoryId/category", BookController.getByCategoryIdFromDB);
-router.post("/create-book", BookController.insertInToDB);
+router.post(
+  "/create-book",
+  auth(ENUM_USER_ROLE.ADMIN),
+  BookController.insertInToDB
+);
 
 export const BookRoutes = router;

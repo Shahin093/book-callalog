@@ -21,9 +21,15 @@ Route: /api/v1/users (GET)
 
 ### Update a Single User → Only Allowed For Admin
 
-Route: /api/v1/users/:id (GET)
+Route: /api/v1/users/4a93d8a9-3327-40d8-ba08-d39813902eb9 (PATCH)
 
-Route: /api/v1/users/:id (GET)
+### Get a Single User → Only Allowed For Admin
+
+Route: /api/v1/users/4a93d8a9-3327-40d8-ba08-d39813902eb9 (GET)
+
+### Delete a Single User → Only Allowed For Admin
+
+Route: /api/v1/users/62554621-66f8-44fd-918a-9dede76c2534 (DELETE)
 
 ## Category:
 
@@ -33,7 +39,7 @@ Route: /api/v1/categories/:id (GET)
 
 ### Update a Category → Only Allowed For Admin
 
-Route: /api/v1/categories/:id (PATCH)
+Route: /api/v1/categories/ca40ee6b-9552-4844-baf9-8d8fed99d6d1 (PATCH)
 
 ### Delete a Category → Only Allowed For Admin
 
@@ -43,7 +49,7 @@ Route: /api/v1/categories/:id ( DELETE)
 
 ### ### Delete a Category → Only Allowed For Admin
 
-Route: /api/v1/categories/:id ( DELETE)
+Route: /api/v1/categories/b36fc850-1b5b-4bfa-a0c5-649cda41ddc7 ( DELETE)
 
 ### Create a New Book
 
@@ -59,11 +65,11 @@ Route: /api/v1/books/create-book (POST) → Only Allowed For Admin
 }
 
 ###Get All Books
-Route: /api/v1/books (GET) xxx
+Route: /api/v1/books (GET)
 
 ### Get Books By CategoryId
 
-Route: /api/v1/books/:categoryId/category (GET) xxx
+Route: /api/v1/books/:categoryId/category (GET)
 
 ### Update a Single Book → Only Allowed For Admin
 
@@ -79,6 +85,10 @@ Route: /api/v1/books/:id ( DELETE)
 
 Route: /api/v1/orders/create-order (POST)
 
-### Get all Order → Only Allowed For Admins
+### Get all Orders → Only Allowed For Admins
 
 Route: /api/v1/orders (GET)
+
+### Get single Order → Only Allowed For customer
+
+Route: /api/v1/6a3449d5-fc0a-4e75-b7b4-5e7f594008f1 (GET)
